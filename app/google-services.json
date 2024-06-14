@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "122473748438",
+    "firebase_url": "https://travelsaverdatabase-default-rtdb.firebaseio.com",
+    "project_id": "travelsaverdatabase",
+    "storage_bucket": "travelsaverdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122473748438:android:2d65be3d4caffcc9357677",
+        "android_client_info": {
+          "package_name": "com.example.travelsaver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcK7I4o_-wjGKWpskPVM085PJmSEh8d2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
