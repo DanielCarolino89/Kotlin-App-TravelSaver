@@ -17,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase
 class MainActivity2 : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var databaseReference: DatabaseReference
 
     private lateinit var btnEntrar: Button
     private lateinit var btnCadastrar: Button
@@ -62,8 +61,11 @@ class MainActivity2 : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val intent = Intent(this, MainActivity4::class.java)
+                            val intent = Intent(this, MainActivity6::class.java)
                             startActivity(intent)
+                        }
+                        else {
+                            Toast.makeText(this, "Usuário não encontrado", Toast.LENGTH_SHORT).show()
                         }
                     }
             }

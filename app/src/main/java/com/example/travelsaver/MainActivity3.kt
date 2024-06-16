@@ -61,7 +61,6 @@ class MainActivity3 : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             startActivity(Intent(this, MainActivity2::class.java))
-                            finish()
                         } else {
                             Toast.makeText(this, "Falha ao registrar", Toast.LENGTH_SHORT).show()
                         }

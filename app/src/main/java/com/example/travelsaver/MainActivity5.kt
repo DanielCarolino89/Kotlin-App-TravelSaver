@@ -56,7 +56,7 @@ class MainActivity5 : AppCompatActivity() {
 
         if (userId != null) {
             databaseReference = FirebaseDatabase.getInstance().getReference("cadastros")
-            databaseReference.child(userId).get().addOnSuccessListener { snapshot ->
+            databaseReference.child(userId.toString()).get().addOnSuccessListener { snapshot ->
                 if (snapshot.exists()) {
                     val nome = snapshot.child("nome").value.toString()
 

@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase
 class MainActivity4 : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var databaseReference: DatabaseReference
 
     private lateinit var btnProximo: Button
     private lateinit var editNome: EditText
@@ -37,44 +36,28 @@ class MainActivity4 : AppCompatActivity() {
         btnProximo = findViewById(R.id.btnProximo)
         editNome = findViewById(R.id.editNome)
 
-        verificarNome()
-
         btnProximo.setOnClickListener {
+            val auth = FirebaseAuth.getInstance()
             val userId = auth.currentUser?.uid
             val nome = editNome.text.toString()
 
-            if (userId != null && nome.isNotBlank()) {
-                databaseReference = FirebaseDatabase.getInstance().getReference("cadastros")
-                val users = UserData(userId, nome)
-                databaseReference.child(userId).setValue(users)
-                    .addOnSuccessListener {
-                        val intent = Intent(this, MainActivity5::class.java)
-                        startActivity(intent)
-                        Toast.makeText(this, "Cadastro realizado", Toast.LENGTH_SHORT).show()
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Falha ao cadastrar", Toast.LENGTH_SHORT).show()
-                    }
+            if (nome.isEmpty()) {
+                Toast.makeText(this, "Digite seu nome", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Usuário não autenticado ou nome vazio", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-    }
-
-    fun verificarNome() {
-        auth = FirebaseAuth.getInstance()
-        val userId = auth.currentUser?.uid
-
-        if (userId != null) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("cadastros")
-            databaseReference.child(userId).get().addOnSuccessListener { snapshot ->
-                if (snapshot.exists()) {
-                    val nome = snapshot.child("nome").value.toString()
-                    if (nome != null && nome.isNotBlank()) {
-                        Toast.makeText(this, "Nome encontrado!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, MainActivity5::class.java))
-                    }
+                if (userId != null) {
+                    val databaseReference = FirebaseDatabase.getInstance().getReference("cadastros")
+                    val user = UserData(userId, nome)
+                    databaseReference.child(userId).setValue(user)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Entrando...", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, MainActivity5::class.java)
+                            startActivity(intent)
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(this, "Falha ao entrar", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this, "Usuário não autenticado!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
