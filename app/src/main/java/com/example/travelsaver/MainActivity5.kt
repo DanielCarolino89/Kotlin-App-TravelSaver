@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,7 @@ class MainActivity5 : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
 
     private lateinit var textNomePessoa: TextView
+    private lateinit var ibtnAdicionar: ImageButton
     private lateinit var btnSair: Button
 
 
@@ -37,11 +39,15 @@ class MainActivity5 : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         textNomePessoa = findViewById(R.id.textNomePessoa)
+        ibtnAdicionar = findViewById(R.id.ibtnAdicionar)
         btnSair = findViewById(R.id.btnSair)
 
         perfil()
 
-
+        ibtnAdicionar.setOnClickListener {
+            val intent = Intent(this, MainActivity7::class.java)
+            startActivity(intent)
+        }
         btnSair.setOnClickListener {
             auth.signOut()
             val intent = Intent(this, MainActivity::class.java)
