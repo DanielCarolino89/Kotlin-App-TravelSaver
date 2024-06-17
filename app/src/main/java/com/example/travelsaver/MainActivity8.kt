@@ -30,9 +30,9 @@ class MainActivity8 : AppCompatActivity() {
         btnProximoSoma.setOnClickListener {
             val destino = intent.getStringExtra("destino")
             val valorViagem = editValorViagem.text.toString()
-            val intent = Intent(this, MainActivity8::class.java)
-            intent.putExtra("valorViagem", valorViagem)
+            val intent = Intent(this, MainActivity9::class.java)
             intent.putExtra("destino", destino)
+            intent.putExtra("valorViagem", valorViagem)
             startActivity(intent)
         }
     }

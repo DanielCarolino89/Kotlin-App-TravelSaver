@@ -31,10 +31,10 @@ class MainActivity9 : AppCompatActivity() {
             val destino = intent.getStringExtra("destino")
             val valorViagem = intent.getStringExtra("valorViagem")
             val valorSalario = editValorSalario.text.toString()
-            val intent = Intent(this, MainActivity8::class.java)
-            intent.putExtra("valorSalario", valorSalario)
-            intent.putExtra("valorViagem", valorViagem)
+            val intent = Intent(this, MainActivity10::class.java)
             intent.putExtra("destino", destino)
+            intent.putExtra("valorViagem", valorViagem)
+            intent.putExtra("valorSalario", valorSalario)
             startActivity(intent)
         }
     }

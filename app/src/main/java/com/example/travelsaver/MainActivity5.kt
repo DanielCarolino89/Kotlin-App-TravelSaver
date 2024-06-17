@@ -19,10 +19,10 @@ class MainActivity5 : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
-
     private lateinit var textNomePessoa: TextView
     private lateinit var ibtnAdicionar: ImageButton
-    private lateinit var btnSair: Button
+    private lateinit var ibtnHome: ImageButton
+    private lateinit var ibtnDinheiro: ImageButton
 
 
     @SuppressLint("MissingInflatedId", "SetTextI18n")
@@ -40,16 +40,24 @@ class MainActivity5 : AppCompatActivity() {
 
         textNomePessoa = findViewById(R.id.textNomePessoa)
         ibtnAdicionar = findViewById(R.id.ibtnAdicionar)
-        btnSair = findViewById(R.id.btnSair)
+        ibtnHome = findViewById(R.id.ibtnHome)
+        ibtnDinheiro = findViewById(R.id.ibtnDinheiro)
 
         perfil()
+
+        ibtnDinheiro.setOnClickListener {
+            val intent = Intent(this, MainActivity13::class.java)
+            startActivity(intent)
+        }
 
         ibtnAdicionar.setOnClickListener {
             val intent = Intent(this, MainActivity7::class.java)
             startActivity(intent)
         }
-        btnSair.setOnClickListener {
+
+        ibtnHome.setOnClickListener {
             auth.signOut()
+            Toast.makeText(this, "Desconectado!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
