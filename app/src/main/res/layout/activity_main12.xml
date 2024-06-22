@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="wrap_content"
+        android:layout_width="176dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="TravelSaver"
@@ -25,7 +25,10 @@
         android:id="@+id/textResposta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/fundo"
         android:gravity="start"
         android:hint="Texto aparecerá aqui!"
         android:textColor="@color/textblack"
