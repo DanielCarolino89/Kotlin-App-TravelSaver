@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,14 +29,18 @@ class MainActivity9 : AppCompatActivity() {
         btnProximoSoma = findViewById(R.id.btnProximoSoma)
 
         btnProximoSoma.setOnClickListener {
-            val destino = intent.getStringExtra("destino")
-            val valorViagem = intent.getStringExtra("valorViagem")
             val valorSalario = editValorSalario.text.toString()
-            val intent = Intent(this, MainActivity10::class.java)
-            intent.putExtra("destino", destino)
-            intent.putExtra("valorViagem", valorViagem)
-            intent.putExtra("valorSalario", valorSalario)
-            startActivity(intent)
+            if (valorSalario.isEmpty()) {
+                Toast.makeText(this, "Insira um valor em Reais", Toast.LENGTH_SHORT).show()
+            }else {
+                val destino = intent.getStringExtra("destino")
+                val valorViagem = intent.getStringExtra("valorViagem")
+                val intent = Intent(this, MainActivity10::class.java)
+                intent.putExtra("destino", destino)
+                intent.putExtra("valorViagem", valorViagem)
+                intent.putExtra("valorSalario", valorSalario)
+                startActivity(intent)
+            }
         }
     }
 }

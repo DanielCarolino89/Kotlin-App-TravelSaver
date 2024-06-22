@@ -1,7 +1,9 @@
 package com.example.travelsaver
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,13 @@ class MainActivity12 : AppCompatActivity() {
         }
 
         textResposta = findViewById(R.id.textResposta)
+
+        val btnVoltar = findViewById<Button>(R.id.btnVoltar)
+
+        btnVoltar.setOnClickListener {
+           val intent = Intent(this, MainActivity5::class.java)
+            startActivity(intent)
+        }
 
         val mensagem = intent.getStringExtra("mensagem")
 

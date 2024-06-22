@@ -11,6 +11,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import java.text.DecimalFormat
 
 class MainActivity13 : AppCompatActivity() {
@@ -34,9 +36,10 @@ class MainActivity13 : AppCompatActivity() {
         textConversor = findViewById(R.id.textConversor)
         editConversor = findViewById(R.id.editConversor)
         btnConversor = findViewById(R.id.btnConversor)
-        ibtnVoltar = findViewById(R.id.ibtnVoltar)
 
-        ibtnVoltar.setOnClickListener {
+        val btnVoltar = findViewById<Button>(R.id.btnVoltar)
+
+        btnVoltar.setOnClickListener {
             val intent = Intent(this, MainActivity5::class.java)
             startActivity(intent)
         }
