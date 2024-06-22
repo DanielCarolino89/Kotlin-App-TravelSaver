@@ -5,13 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FFFFFF"
+    android:background="@color/background"
     tools:context=".MainActivity5">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/textcolor"
         android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,6 +27,7 @@
             android:layout_marginLeft="15px"
             android:gravity="center"
             android:hint="Nome da pessoa"
+            android:textColor="@color/white"
             android:textSize="34sp"
             android:textStyle="bold" />
 
@@ -43,6 +45,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/textcolor"
         android:contentDescription="navbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +90,7 @@
         android:layout_marginTop="120dp"
         android:gravity="start"
         android:hint="Nenhum destino cadastrado!"
+        android:textColor="@color/textblack"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

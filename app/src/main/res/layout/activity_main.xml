@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="seu aplicativo de economia para viagens!"
+        android:textColor="@color/textblack"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +28,7 @@
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="Bem-vindo ao TravelSaver"
+        android:textColor="@color/textblack"
         android:textSize="32sp"
         android:textStyle="bold"
         app:constraint_referenced_tags="T"
@@ -38,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="#FFFFFF"
+        android:background="@color/background"
         android:contentDescription="start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
@@ -52,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="Aperte os cintos e vamos começar!"
+        android:textColor="@color/textcolor"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"

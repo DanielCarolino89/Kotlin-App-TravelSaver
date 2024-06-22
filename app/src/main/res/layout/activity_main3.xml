@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity3">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Preencha o cadastro"
+        android:textColor="@color/textblack"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Email:"
+        android:textColor="@color/textcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="Senha:"
+        android:textColor="@color/textcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="Confirmar senha:"
+        android:textColor="@color/textcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.217"
         app:layout_constraintStart_toStartOf="parent"
