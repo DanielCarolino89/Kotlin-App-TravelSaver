@@ -28,7 +28,6 @@ class MainActivity5 : AppCompatActivity() {
     private lateinit var btnBuscar: Button
     private lateinit var editPesquisar: EditText
 
-
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,8 +91,8 @@ class MainActivity5 : AppCompatActivity() {
             databaseReference.child(userId.toString()).get().addOnSuccessListener { snapshot ->
                 if (snapshot.exists()) {
                     val nome = snapshot.child("nome").value.toString()
-
-                    textNomePessoa.text = "Olá, $nome"
+                    val texto = "Olá, $nome"
+                    textNomePessoa.text = texto
                 } else {
                     Toast.makeText(
                         this,

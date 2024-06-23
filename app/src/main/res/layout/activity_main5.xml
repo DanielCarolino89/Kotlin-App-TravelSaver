@@ -40,6 +40,7 @@
             android:background="#00FFFFFF"
             android:contentDescription="mais"
             app:srcCompat="@drawable/mais" />
+
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -120,6 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:text="Ver"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
