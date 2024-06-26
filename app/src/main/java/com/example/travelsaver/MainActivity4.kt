@@ -54,10 +54,8 @@ class MainActivity4 : AppCompatActivity() {
                             startActivity(intent)
                         }
                         .addOnFailureListener {
-                            Toast.makeText(this, "Falha ao entrar", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Falha ao entrar, verifique os campos digitados", Toast.LENGTH_SHORT).show()
                         }
-                } else {
-                    Toast.makeText(this, "Usuário não autenticado!", Toast.LENGTH_SHORT).show()
                 }
             }
         }

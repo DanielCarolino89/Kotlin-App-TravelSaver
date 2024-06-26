@@ -43,13 +43,7 @@ class MainActivity6 : AppCompatActivity() {
                 } else {
                     startActivity(Intent(this, MainActivity4::class.java))
                 }
-            }.addOnFailureListener {
-                // Handle the error
-                Toast.makeText(this, "Erro ao buscar dados!", Toast.LENGTH_SHORT).show()
             }
-        } else {
-            // Handle case where userId is null
-            Toast.makeText(this, "Usuário não autenticado!", Toast.LENGTH_SHORT).show()
         }
     }
 }

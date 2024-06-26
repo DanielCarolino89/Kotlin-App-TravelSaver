@@ -62,7 +62,7 @@ class MainActivity3 : AppCompatActivity() {
                         if (task.isSuccessful) {
                             startActivity(Intent(this, MainActivity2::class.java))
                         } else {
-                            Toast.makeText(this, "Falha ao registrar", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Usuaario já cadastrado", Toast.LENGTH_SHORT).show()
                         }
                     }
             }

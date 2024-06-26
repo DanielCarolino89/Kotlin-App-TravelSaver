@@ -24,6 +24,7 @@ class MainActivity5 : AppCompatActivity() {
     private lateinit var ibtnAdicionar: ImageButton
     private lateinit var ibtnHome: ImageButton
     private lateinit var ibtnDinheiro: ImageButton
+    private lateinit var ibtnInfo: ImageButton
     private lateinit var textPostagem: TextView
     private lateinit var btnBuscar: Button
     private lateinit var editPesquisar: EditText
@@ -45,6 +46,7 @@ class MainActivity5 : AppCompatActivity() {
         ibtnAdicionar = findViewById(R.id.ibtnAdicionar)
         ibtnHome = findViewById(R.id.ibtnHome)
         ibtnDinheiro = findViewById(R.id.ibtnDinheiro)
+        ibtnInfo = findViewById(R.id.ibtnInfo)
         textPostagem = findViewById(R.id.textPostagem)
         btnBuscar = findViewById(R.id.btnBuscar)
         editPesquisar = findViewById(R.id.editPesquisar)
@@ -69,6 +71,11 @@ class MainActivity5 : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        ibtnInfo.setOnClickListener {
+            val intent = Intent(this, MainActivity15::class.java)
+            startActivity(intent)
         }
 
         btnBuscar.setOnClickListener {
@@ -130,19 +137,8 @@ class MainActivity5 : AppCompatActivity() {
                     }
 
                     textPostagem.text = titlesList.joinToString(separator = "\n\n")
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Nenhuma postagem encontrada para este usuário",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
-            }.addOnFailureListener { e ->
-                Toast.makeText(this, "Erro ao buscar dados: ${e.message}", Toast.LENGTH_SHORT)
-                    .show()
             }
-        } else {
-            Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show()
         }
     }
 }

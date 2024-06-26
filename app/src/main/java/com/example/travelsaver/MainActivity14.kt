@@ -35,8 +35,17 @@ class MainActivity14 : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btnExcluir = findViewById<Button>(R.id.btnExcluir)
+
+        btnExcluir.setOnClickListener {
+            deleteData()
+            val intent = Intent(this, MainActivity5::class.java)
+            startActivity(intent)
+        }
+
         readData()
     }
+
     private fun readData() {
         val textCampo = findViewById<TextView>(R.id.textCampo)
 
@@ -45,21 +54,36 @@ class MainActivity14 : AppCompatActivity() {
         val userId = auth.currentUser?.uid
 
         if (userId != null) {
-            val databaseReference = FirebaseDatabase.getInstance().getReference("postagem").child(userId).child(pesquisar)
+            val databaseReference =
+                FirebaseDatabase.getInstance().getReference("postagem").child(userId)
+                    .child(pesquisar)
 
             databaseReference.get().addOnSuccessListener { snapshot ->
                 if (snapshot.exists()) {
                     val texto = snapshot.child("texto").value
                     textCampo.text = texto.toString()
-                    Toast.makeText(this, "Resultado encontrado!", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Resultado não encontrado!", Toast.LENGTH_SHORT).show()
+
                 }
+            }
+        }
+    }
+
+    private fun deleteData() {
+        val pesquisar = intent.getStringExtra("pesquisar").toString()
+        val auth = FirebaseAuth.getInstance()
+        val userId = auth.currentUser?.uid
+
+        if (userId != null) {
+            val databaseReference = FirebaseDatabase.getInstance().getReference("postagem").child(userId).child(pesquisar)
+
+            databaseReference.removeValue().addOnSuccessListener {
+                Toast.makeText(this, "Postagem deletada com sucesso", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
-                Toast.makeText(this, "ERRO DE CONEXÃO", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro ao deletar postagem", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

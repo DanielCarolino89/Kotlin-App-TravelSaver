@@ -33,21 +33,16 @@ class MainActivity11 : AppCompatActivity() {
         val valorSalario = intent.getStringExtra("valorSalario")?.toDoubleOrNull() ?: 0.0
         val valorMeses = intent.getStringExtra("valorMeses")?.toIntOrNull() ?: 1
 
-        val DF = DecimalFormat("")
-
         val QtaMensal = if (valorViagem != 0.0) valorViagem / valorMeses else 0.0
-        val DF_QtaMensal = DF.format(QtaMensal)
 
         val QtaMensal2 = if (valorSalario != 0.0) valorSalario * 0.15 else 0.0
-        val DF_QtaMensal2 = DF.format(QtaMensal2)
 
-        val QtaMensal3 = if (valorViagem != 0.0) valorViagem / QtaMensal2 else 0.0
-        val DF_QtaMensal3 = DF.format(QtaMensal3)
+        val QtaMensal3 = if (valorViagem != 0.0) (valorViagem / QtaMensal2).toInt() else 0
 
         val mensagem = "Destino: $destino,\n" +
-                "Valor da Viagem: $valorViagem,\n\n" +
-                "Opção 1:\nPara assegurar o valor da viagem, você terá que guardar R$$DF_QtaMensal, em $valorMeses meses\n\n" +
-                "Opção 2:\nCom base em seu salário, para obter o valor da viagem, você terá que guardar R$$DF_QtaMensal2, em $DF_QtaMensal3 meses"
+                "Valor da Viagem: $${"%.2f".format(valorViagem)},\n\n" +
+                "Opção 1:\nPara assegurar o valor da viagem, você terá que guardar R$${"%.2f".format(QtaMensal)}, em $valorMeses meses\n\n" +
+                "Opção 2:\nCom base em seu salário, para obter o valor da viagem, você terá que guardar R$${"%.2f".format(QtaMensal2)}, em $QtaMensal3 meses"
 
         val intent = Intent(this, MainActivity12::class.java)
         intent.putExtra("mensagem", mensagem)
